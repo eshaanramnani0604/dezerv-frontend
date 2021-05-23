@@ -16,9 +16,21 @@ function App() {
   const [isPasswordError,setIsPasswordError]=useState(false);
   const [passwordErrors,setPasswordErrors]=useState([]);
   const [errorMessage,setErrorMessage]=useState('');
-  const toggleRegisterShow = () => setRegisterShow(!registerShow);
-  const toggleLoginShow = () => setLoginShow(!loginShow);
-  const toggleChangePasswordShow = () => setChangePasswordShow(!changePasswordShow);
+  const toggleRegisterShow = () => {
+    setRegisterShow(!registerShow);
+    setEmail('');
+    setPassword('');
+  }
+  const toggleLoginShow = () => {
+    setLoginShow(!loginShow);
+    setEmail('');
+    setPassword('');
+  }
+  const toggleChangePasswordShow = () => {
+    setChangePasswordShow(!changePasswordShow);
+    setEmail('');
+    setPassword('');
+  }
   const setEmailValue = (event) => {
     setEmail(event.target.value);
     
@@ -93,7 +105,7 @@ function App() {
     .then(res=>res.json())
     .then(json=>{
       if(json.success===true){
-        alert('registration successful');
+        alert('change password successful');
         setRegisterShow(!registerShow);
         setEmail('');
         setPassword('');
